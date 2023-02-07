@@ -48,14 +48,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 cell.addEventListener("click", function(e) {
                     clickCell(cell);
                 })
-            }
-            
-            board.push(row);
-            
-            
-        }
+                cell.addEventListener("auxclick", function(e) {
+                    flagCell(cell);
+                })
 
-        
+            }
+            board.push(row);
+        }
     }
 
     function clickCell(cell) {
@@ -77,7 +76,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 for(var j=Math.max(c-1,0); j<=Math.min(c+1,9); j++) {
                     if(mineLocations.includes(i+""+j)){
                         minesFound++;
-                        console.log(minesFound);
                     }
                 }
             }
@@ -87,15 +85,18 @@ document.addEventListener('DOMContentLoaded', () => {
                  
                 for (var i=Math.max(r-1,0); i<=Math.min(r+1,9); i++) {
                      for(var j=Math.max(c-1,0); j<=Math.min(c+1,9); j++) {
-                        console.log(i + " " + j);
                         if(!(document.getElementById(i+""+j).innerHTML=="0")){
-                            console.log(document.getElementById(i+""+j));
                             clickCell(document.getElementById(i+""+j));
                         }
                     }
                 }
             }
         }
+    }
+
+    function flagCell(cell) {
+        //handling flagg
+        cell.innerHTML="🚩";
     }
 
 
