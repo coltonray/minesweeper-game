@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const mineLocations = generateMines();
 
     var gameOver = false;
-    var flags = 0;
+    var correct = 0;
 
     generateGrid(); 
 
@@ -98,15 +98,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function flagCell(cell) {
         //handling flagg
-        if(mines > flags){
-            console.log(flags);
+        if(!(cell.classList.contains('clicked')) && !(cell.innerText=='💣')){
+    
             cell.innerText="🚩";
-            flags++;
-            
-            let count = document.getElementById('flagCounter');
-            let rem = mines - flags;
-            
-            count.innerText == 'Flags Remaining: ' + rem;
+            cell.classList.add('flagged');
+            if(cell.classList.contains('flagged') && cell.classList.contains('mine')) {
+                correct++;
+                checkWin();
+            }
         }
     }
 
@@ -118,6 +117,14 @@ document.addEventListener('DOMContentLoaded', () => {
         
         }
     }
+
+    function checkWin() {
+        
+        if(correct == mines) {
+            alert("You Win!");
+        }
+    }
+
 
 
 })
