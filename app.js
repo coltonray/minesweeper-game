@@ -4,9 +4,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const rows = 10;
     const columns = 10;
     const mines = 12;
+    
     const mineLocations = generateMines();
 
     var gameOver = false;
+    var flags = 0;
 
     generateGrid(); 
 
@@ -59,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function clickCell(cell) {
         if (cell.classList.contains('mine')) {
-            //reveal mines
+            revealMines();
             alert("Game Over");
         }
         else {
@@ -96,7 +98,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function flagCell(cell) {
         //handling flagg
-        cell.innerHTML="🚩";
+        if(mines > flags){
+            console.log(flags);
+            cell.innerText="🚩";
+            flags++;
+            
+            let count = document.getElementById('flagCounter');
+            let rem = mines - flags;
+            
+            count.innerText == 'Flags Remaining: ' + rem;
+        }
+    }
+
+    function revealMines() {
+        for(var i = 0; i < mineLocations.length; i++){
+            
+        let mine = document.getElementById(mineLocations[i]);
+        mine.innerText="💣";
+        
+        }
     }
 
 

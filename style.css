@@ -9,6 +9,13 @@ h1 {
     text-align: center;
 }
 
+div {
+    font-size: 25px;
+    text-align: center;
+    font-family: 'Roboto Mono', monospace;
+  
+  }
+
 .container {
     width: 500px;
     align-content: center;
@@ -34,7 +41,7 @@ h1 {
 }
 
 .mine{
-    background-color: chartreuse;
+    background-color: black;
 }
 
 .clear{
