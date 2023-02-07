@@ -59,7 +59,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function clickCell(cell) {
-        console.log(cell);
         if (cell.classList.contains('mine')) {
             //reveal mines
             alert("Game Over");
@@ -76,7 +75,6 @@ document.addEventListener('DOMContentLoaded', () => {
             //alert(r + " " + c);
             for (var i=Math.max(r-1, 0); i<=Math.min(r+1,9); i++){
                 for(var j=Math.max(c-1,0); j<=Math.min(c+1,9); j++) {
-                    console.log(i+""+j);
                     if(mineLocations.includes(i+""+j)){
                         minesFound++;
                         console.log(minesFound);
@@ -84,18 +82,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
             cell.innerHTML=minesFound;
-           /**  if (minesFound == 0)
+            if(minesFound == 0)
             {
+                 
                 for (var i=Math.max(r-1,0); i<=Math.min(r+1,9); i++) {
-                    for(var j=Math.max(c-1,0); j<=Math.min(c+1,9); j++) {
+                     for(var j=Math.max(c-1,0); j<=Math.min(c+1,9); j++) {
                         console.log(i + " " + j);
-                        //if(board[i,j].innerHTML=="0"){
-                            console.log(i + " " + j);
+                        if(!(document.getElementById(i+""+j).innerHTML=="0")){
+                            console.log(document.getElementById(i+""+j));
                             clickCell(document.getElementById(i+""+j));
-                        //}
+                        }
                     }
                 }
-            }*/
+            }
         }
     }
 
