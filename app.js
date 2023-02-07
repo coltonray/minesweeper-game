@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
             let row = [];
             for(var j = 0; j < 10; j++){
                 let cell = document.createElement('div');
-                cell.setAttribute('id', i + '-' + j);
+                cell.setAttribute('id', i +""+ j);
                 grid.appendChild(cell);
                 row.push(cell);
             }
