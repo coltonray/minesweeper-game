@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const grid = document.getElementById("grid");
     const board = [];
-    
     const rows = 10;
     const columns = 10;
     const mines = 12;
@@ -11,10 +10,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //return an array of mineLocations
     function generateMines() {
-        let useableMines = mines;
+        let placeableMines = mines;
         const m = [];
         
-        while (useableMines > 0) {
+        while (placeableMines > 0) {
             let r = Math.floor(Math.random() * rows);
             let c = Math.floor(Math.random()*columns);
 
@@ -22,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if(!m.includes(id)) {
                 m.push(id)
-                useableMines -= 1;
+                placeableMines -= 1;
             }
         }
         return m;
@@ -43,12 +42,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 else {
                     cell.classList.add('clear');
                 }
+                cell.addEventListener("click", function(e) {
+                    clickCell(cell);
+                })
             }
             board.push(row);
         }
+
+        
     }
 
-    
+    function clickCell(cell) {
+        if (cell.classList.contains('mine')) {
+            alert("Game Over");
+        }
+    }
 
 
 
