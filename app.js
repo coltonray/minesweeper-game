@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const mines = 12;
     const mineLocations = generateMines();
 
+    var gameOver = false;
+
     generateGrid(); 
 
     //return an array of mineLocations
@@ -41,23 +43,61 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 else {
                     cell.classList.add('clear');
+
                 }
                 cell.addEventListener("click", function(e) {
                     clickCell(cell);
                 })
             }
+            
             board.push(row);
+            
+            
         }
 
         
     }
 
     function clickCell(cell) {
+        console.log(cell);
         if (cell.classList.contains('mine')) {
+            //reveal mines
             alert("Game Over");
         }
-    }
+        else {
+            cell.classList.add('clicked');
 
+            let minesFound = 0;
+
+            var s = cell.getAttribute('id');
+            var r = parseInt(s[0]);
+            var c = parseInt(s[1]);
+
+            //alert(r + " " + c);
+            for (var i=Math.max(r-1, 0); i<=Math.min(r+1,9); i++){
+                for(var j=Math.max(c-1,0); j<=Math.min(c+1,9); j++) {
+                    console.log(i+""+j);
+                    if(mineLocations.includes(i+""+j)){
+                        minesFound++;
+                        console.log(minesFound);
+                    }
+                }
+            }
+            cell.innerHTML=minesFound;
+           /**  if (minesFound == 0)
+            {
+                for (var i=Math.max(r-1,0); i<=Math.min(r+1,9); i++) {
+                    for(var j=Math.max(c-1,0); j<=Math.min(c+1,9); j++) {
+                        console.log(i + " " + j);
+                        //if(board[i,j].innerHTML=="0"){
+                            console.log(i + " " + j);
+                            clickCell(document.getElementById(i+""+j));
+                        //}
+                    }
+                }
+            }*/
+        }
+    }
 
 
 })

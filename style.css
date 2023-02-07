@@ -36,3 +36,10 @@ h1 {
 .mine{
     background-color: chartreuse;
 }
+
+.clear{
+    background-color: black;
+}
+.clicked{
+    background-color: grey;
+}
