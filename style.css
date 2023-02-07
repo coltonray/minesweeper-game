@@ -1,24 +1,23 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    /**font-weight: bold;
-    /*text-align: center;*/
+    background: black;
+    color: rgb(234, 238, 238);
+    font-family: courier new;
+    text-align: center;
 }
 
 h1 {
-    font-weight: bold;
+  text-align: center;
+  font-size: 16pt;
+  font-weight: normal;
 }
 
 div {
-    font-size: 28px;
+    font-size: 27px;
     text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Roboto Mono', monospace;
   
   }
 
-.container {
-    width: 500px;
-    align-content: center;
-}
 
 #grid {
     width: 401px;
@@ -27,26 +26,33 @@ div {
     flex-wrap: wrap;
     margin-left: auto;
     margin-right: auto;
-    background-color: grey;
+    background: #e7e7ee;
+
 }
 
 #grid div {
-    /** align-self: center; */
-    margin: auto;
-    height: 38px;
-    width: 38px;
-    text-align: center;
-    
+  border:1px solid rgb(204, 217, 221);
+  margin: auto;
+  height: 38px;
+  width: 38px;
+  text-align: center;
+  
 }
 
 .mine{
-    background-color: black;
+    background: #494949;
+    opacity: 0.9;
+    
 }
 
 .clear{
-    background-color: black;
+    background: #494949;
+    opacity: 0.9;
+    transition: 0.5s;
 }
+
 .clicked{
-    background-color: grey;
-    margin: 2px;
+    background: #039e89;
+    opacity: 0.9;
+    transition: 0.7s;
 }

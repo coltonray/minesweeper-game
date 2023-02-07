@@ -4,11 +4,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const rows = 10;
     const columns = 10;
     const mines = 12;
-    
+    var correct = 0;
     const mineLocations = generateMines();
 
-    var gameOver = false;
-    var correct = 0;
+    
 
     generateGrid(); 
 
@@ -59,6 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    //reveals given cell, for mines, free cells, or adjacent # of mines
     function clickCell(cell) {
         if (cell.classList.contains('mine')) {
             revealMines();
@@ -73,7 +73,6 @@ document.addEventListener('DOMContentLoaded', () => {
             var r = parseInt(s[0]);
             var c = parseInt(s[1]);
 
-            //alert(r + " " + c);
             for (var i=Math.max(r-1, 0); i<=Math.min(r+1,9); i++){
                 for(var j=Math.max(c-1,0); j<=Math.min(c+1,9); j++) {
                     if(mineLocations.includes(i+""+j)){
@@ -96,8 +95,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    //flags given cell and checks for win condition
     function flagCell(cell) {
-        //handling flagg
         if(!(cell.classList.contains('clicked')) && !(cell.innerText=='💣')){
     
             cell.innerText="🚩";
@@ -109,17 +108,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    //reveals all mines during a loss.
     function revealMines() {
         for(var i = 0; i < mineLocations.length; i++){
-            
         let mine = document.getElementById(mineLocations[i]);
         mine.innerText="💣";
-        
         }
     }
 
+    //simple check against correct matches and # of mines.
     function checkWin() {
-        
         if(correct == mines) {
             alert("You Win!");
         }
