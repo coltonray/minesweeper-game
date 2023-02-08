@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
   const grid = document.getElementById("grid");
-  const board = [];
   const rows = 10;
   const columns = 10;
   const numOfMines = 12;
