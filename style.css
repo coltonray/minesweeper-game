@@ -1,5 +1,5 @@
 body {
-    background: black;
+    background: #4E3D42;
     color: rgb(234, 238, 238);
     font-family: courier new;
     text-align: center;
@@ -26,7 +26,7 @@ div {
     flex-wrap: wrap;
     margin-left: auto;
     margin-right: auto;
-    background: #e7e7ee;
+    background: #E3DBDB;
 
 }
 
@@ -40,13 +40,13 @@ div {
 }
 
 .mine{
-    background: #494949;
+    background: #6D6466;
     opacity: 0.9;
     
 }
 
 .clear{
-    background: #494949;
+    background: #6D6466;
     opacity: 0.9;
     transition: 0.5s;
 }
